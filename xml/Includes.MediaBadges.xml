@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Media Quality & Audio Badge System -->
+<includes>
+
+	<!-- Quality Badge Container -->
+	<include name="MediaBadges.Quality">
+		<control type="group">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>120</width>
+			<height>30</height>
+
+			<!-- 4K Badge -->
+			<control type="label">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>35</width>
+				<height>20</height>
+				<label>4K</label>
+				<textcolor>ColorBadgeText</textcolor>
+				<font>font12_bold</font>
+				<visible>[String.Contains(ListItem.Label,(2160)) | String.Contains(ListItem.Label,4K) | String.Contains(ListItem.Label,UHD)]</visible>
+			</control>
+
+			<!-- HDR Badge -->
+			<control type="label">
+				<posx>40</posx>
+				<posy>0</posy>
+				<width>35</width>
+				<height>20</height>
+				<label>HDR</label>
+				<textcolor>ColorBadgeText</textcolor>
+				<font>font12_bold</font>
+				<visible>[String.Contains(ListItem.Label,HDR) | String.Contains(ListItem.Tag,HDR)]</visible>
+			</control>
+
+			<!-- Atmos Badge -->
+			<control type="label">
+				<posx>80</posx>
+				<posy>0</posy>
+				<width>40</width>
+				<height>20</height>
+				<label>ATMOS</label>
+				<textcolor>ColorBadgeText</textcolor>
+				<font>font12_bold</font>
+				<visible>String.Contains(ListItem.Label,Atmos)</visible>
+			</control>
+
+		</control>
+	</include>
+
+	<!-- HDR-specific badge -->
+	<include name="MediaBadges.HDR">
+		<control type="group">
+			<visible>[String.Contains(ListItem.Label,HDR) | String.Contains(ListItem.Tag,HDR)]</visible>
+			<control type="label">
+				<label>HDR</label>
+				<textcolor>ffff6b35</textcolor>
+				<font>font12_bold</font>
+			</control>
+		</control>
+	</include>
+
+</includes>

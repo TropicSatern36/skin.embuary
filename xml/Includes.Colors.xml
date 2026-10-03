@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Centralized Color System for Modern Embuary -->
+<includes>
+	<!-- Background & Surface Colors -->
+	<color name="ColorBackground">ff0a0e27</color>
+	<color name="ColorSurface">ff1a1f3a</color>
+	<color name="ColorSurfaceElevated">ff252d4a</color>
+	<color name="ColorOverlay">cc000000</color>
+	<color name="ColorOverlayLight">88000000</color>
+
+	<!-- Text Colors -->
+	<color name="ColorTextPrimary">ffffffff</color>
+	<color name="ColorTextSecondary">ffb0b8d4</color>
+	<color name="ColorTextDisabled">ff6b7280</color>
+	<color name="ColorTextAccent">ffe8eff7</color>
+
+	<!-- Semantic Colors -->
+	<color name="ColorAccent">ff0ea5e9</color>
+	<color name="ColorFocus">ff06b6d4</color>
+	<color name="ColorProgress">ff10b981</color>
+	<color name="ColorError">ffef4444</color>
+	<color name="ColorSuccess">ff10b981</color>
+	<color name="ColorWarning">fff59e0b</color>
+
+	<!-- Specific Component Colors -->
+	<color name="ColorFocusBorder">ff06b6d4</color>
+	<color name="ColorBadgeBackground">ff1f2937</color>
+	<color name="ColorBadgeText">ffe5e7eb</color>
+	<color name="ColorProgressBar">ff10b981</color>
+	<color name="ColorProgressBackground">ff374151</color>
+
+	<!-- Legacy compatibility (map to new system) -->
+	<color name="black">ff000000</color>
+	<color name="white">ffffffff</color>
+	<color name="background">ff0a0e27</color>
+
+</includes>

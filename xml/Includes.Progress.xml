@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Progress Indicator Component -->
+<includes>
+
+	<!-- Resume/Continue progress bar -->
+	<include name="Progress.Bar">
+		<control type="group">
+			<width>300</width>
+			<height>6</height>
+
+			<!-- Background track -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>300</width>
+				<height>6</height>
+				<texture>colors/white.png</texture>
+				<colordiffuse>$VAR[ColorProgressBackground]</colordiffuse>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+			<!-- Progress fill -->
+			<control type="progress">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>300</width>
+				<height>6</height>
+				<texturebg>colors/white.png</texturebg>
+				<textureslid>colors/white.png</textureslid>
+				<colordiffuse>$VAR[ColorProgress]</colordiffuse>
+				<info>ListItem.Percent</info>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+		</control>
+	</include>
+
+	<!-- Progress with percentage label -->
+	<include name="Progress.WithLabel">
+		<control type="group">
+			<width>300</width>
+			<height>24</height>
+
+			<!-- Progress bar -->
+			<include>Progress.Bar</include>
+
+			<!-- Percentage -->
+			<control type="label">
+				<posx>305</posx>
+				<posy>0</posy>
+				<width>50</width>
+				<height>24</height>
+				<label>$INFO[ListItem.Percent]%</label>
+				<textcolor>ColorTextSecondary</textcolor>
+				<font>font12</font>
+			</control>
+
+		</control>
+	</include>
+
+</includes>

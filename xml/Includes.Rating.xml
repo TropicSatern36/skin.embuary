@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Rating Display Component -->
+<includes>
+
+	<!-- IMDb/user rating display -->
+	<include name="Rating.Display">
+		<control type="group">
+			<width>100</width>
+			<height>24</height>
+
+			<!-- Star icon -->
+			<control type="label">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>20</width>
+				<height>24</height>
+				<label>★</label>
+				<textcolor>ColorAccent</textcolor>
+				<font>font16</font>
+			</control>
+
+			<!-- Rating value -->
+			<control type="label">
+				<posx>25</posx>
+				<posy>0</posy>
+				<width>75</width>
+				<height>24</height>
+				<label>$INFO[ListItem.Rating]</label>
+				<textcolor>ColorTextPrimary</textcolor>
+				<font>font14</font>
+				<visible>!String.IsEmpty(ListItem.Rating)</visible>
+			</control>
+
+		</control>
+	</include>
+
+	<!-- Multi-source rating (IMDb + RT + User) -->
+	<include name="Rating.MultiSource">
+		<control type="group">
+			<width>200</width>
+			<height>30</height>
+
+			<!-- IMDb -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<visible>!String.IsEmpty(ListItem.Rating)</visible>
+				<control type="label">
+					<label>IMDb:</label>
+					<textcolor>ColorTextSecondary</textcolor>
+					<font>font12</font>
+				</control>
+				<control type="label">
+					<posx>50</posx>
+					<label>$INFO[ListItem.Rating]</label>
+					<textcolor>ColorTextPrimary</textcolor>
+					<font>font14</font>
+				</control>
+		</control>
+
+		<!-- Rotten Tomatoes -->
+		<control type="group">
+			<posx>100</posx>
+			<posy>0</posy>
+			<visible>!String.IsEmpty(ListItem.Rating(rottentomatoes))</visible>
+			<control type="label">
+				<label>RT:</label>
+				<textcolor>ColorTextSecondary</textcolor>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<posx>35</posx>
+				<label>$INFO[ListItem.Rating(rottentomatoes)]</label>
+				<textcolor>ColorTextPrimary</textcolor>
+				<font>font14</font>
+			</control>
+		</control>
+
+		</control>
+	</include>
+
+</includes>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reusable Media Card Component -->
+<includes>
+
+	<!-- Standard Poster Card (180x270) -->
+	<include name="MediaCard.Poster">
+		<control type="group">
+			<width>180</width>
+			<height>300</height>
+			<visible>true</visible>
+			
+			<!-- Card background -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>180</width>
+				<height>270</height>
+				<texture fallback="DefaultVideoPoster.png">$INFO[ListItem.Art(poster)]</texture>
+				<aspectratio>keep</aspectratio>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+			<!-- Focus highlight -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>180</width>
+				<height>270</height>
+				<texture>colors/white.png</texture>
+				<colordiffuse>$VAR[ColorFocus]</colordiffuse>
+				<visible>Control.HasFocus()</visible>
+				<animation effect="fade" start="0" end="20" time="150" tween="ease-out">Conditional</animation>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+			<!-- Title (below poster) -->
+			<control type="label">
+				<posx>0</posx>
+				<posy>280</posy>
+				<width>180</width>
+				<height>20</height>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>ColorTextPrimary</textcolor>
+				<font>font14</font>
+				<align>center</align>
+				<aligny>top</aligny>
+				<scroll>true</scroll>
+			</control>
+
+		</control>
+	</include>
+
+	<!-- Landscape Card (320x180) -->
+	<include name="MediaCard.Landscape">
+		<control type="group">
+			<width>320</width>
+			<height>210</height>
+
+			<!-- Artwork -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>320</width>
+				<height>180</height>
+				<texture fallback="DefaultVideoLandscape.png">$INFO[ListItem.Art(landscape)]</texture>
+				<aspectratio>keep</aspectratio>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+			<!-- Focus border -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>320</width>
+				<height>180</height>
+				<texture>colors/white.png</texture>
+				<colordiffuse>$VAR[ColorFocus]</colordiffuse>
+				<visible>Control.HasFocus()</visible>
+				<bordersize>3</bordersize>
+				<animation effect="fade" start="0" end="25" time="150" tween="ease-out">Conditional</animation>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+			<!-- Title -->
+			<control type="label">
+				<posx>0</posx>
+				<posy>190</posy>
+				<width>320</width>
+				<height>20</height>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>ColorTextPrimary</textcolor>
+				<font>font14</font>
+			</control>
+
+		</control>
+	</include>
+
+</includes>
