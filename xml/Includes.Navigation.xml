@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Modern Navigation Components -->
+<includes>
+
+	<!-- Top Navigation Bar -->
+	<include name="Navigation.TopBar">
+		<control type="group">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>80</height>
+
+			<!-- Background -->
+			<control type="image">
+				<width>100%</width>
+				<height>100%</height>
+				<texture>colors/white.png</texture>
+				<colordiffuse>$VAR[ColorSurface]</colordiffuse>
+			</control>
+
+			<!-- Bottom border -->
+			<control type="image">
+				<posy>75</posy>
+				<width>100%</width>
+				<height>1</height>
+				<texture>colors/white.png</texture>
+				<colordiffuse>$VAR[ColorFocusBorder]</colordiffuse>
+				<alpha>30</alpha>
+			</control>
+
+			<!-- Menu items will be inserted here via skin shortcuts -->
+
+		</control>
+	</include>
+
+	<!-- Navigation Button (generic) -->
+	<include name="Navigation.Button">
+		<control type="button">
+			<width>auto</width>
+			<height>60</height>
+			<texturefocus>colors/white.png</texturefocus>
+			<texturenofocus>colors/white.png</texturenofocus>
+			<colordiffuse>$VAR[ColorAccent]</colordiffuse>
+			<focusedcolor>$VAR[ColorFocus]</focusedcolor>
+			<textcolor>$VAR[ColorTextPrimary]</textcolor>
+			<font>font16</font>
+			<align>center</align>
+			<aligny>center</aligny>
+			<animation effect="fade" start="100" end="70" time="150" tween="ease-out">UnFocus</animation>
+			<animation effect="fade" start="70" end="100" time="150" tween="ease-out">Focus</animation>
+		</control>
+	</include>
+
+</includes>

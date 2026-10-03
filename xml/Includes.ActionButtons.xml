@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Action Button Components -->
+<includes>
+
+	<!-- Primary Action Button (Play/Continue) -->
+	<include name="Button.Primary">
+		<control type="button">
+			<width>180</width>
+			<height>48</height>
+			<texturefocus>colors/white.png</texturefocus>
+			<texturenofocus>colors/white.png</texturenofocus>
+			<colordiffuse>$VAR[ColorAccent]</colordiffuse>
+			<focusedcolor>$VAR[ColorFocus]</focusedcolor>
+			<textcolor>$VAR[ColorTextPrimary]</textcolor>
+			<focusedtextcolor>$VAR[ColorBackground]</focusedtextcolor>
+			<font>font16_bold</font>
+			<align>center</align>
+			<aligny>center</aligny>
+			<bordersize>2</bordersize>
+			<borderstyle>rounded</borderstyle>
+			<animation effect="fade" start="100" end="80" time="150" tween="ease-out">UnFocus</animation>
+			<animation effect="fade" start="80" end="100" time="150" tween="ease-out">Focus</animation>
+			<animation effect="scale" start="100" end="110" center="auto" time="150" tween="ease-out">Focus</animation>
+		</control>
+	</include>
+
+	<!-- Secondary Action Button (Details, Watchlist) -->
+	<include name="Button.Secondary">
+		<control type="button">
+			<width>140</width>
+			<height>48</height>
+			<texturefocus>colors/white.png</texturefocus>
+			<texturenofocus>colors/white.png</texturenofocus>
+			<colordiffuse>$VAR[ColorSurfaceElevated]</colordiffuse>
+			<focusedcolor>$VAR[ColorSurface]</focusedcolor>
+			<textcolor>$VAR[ColorTextPrimary]</textcolor>
+			<font>font14</font>
+			<align>center</align>
+			<aligny>center</aligny>
+			<bordersize>1</bordersize>
+			<borderstyle>rounded</borderstyle>
+			<animation effect="fade" start="100" end="60" time="150" tween="ease-out">UnFocus</animation>
+			<animation effect="fade" start="60" end="100" time="150" tween="ease-out">Focus</animation>
+		</control>
+	</include>
+
+	<!-- Icon Button (small action) -->
+	<include name="Button.Icon">
+		<control type="button">
+			<width>48</width>
+			<height>48</height>
+			<texturefocus>colors/white.png</texturefocus>
+			<texturenofocus>colors/white.png</texturenofocus>
+			<colordiffuse>$VAR[ColorSurfaceElevated]</colordiffuse>
+			<focusedcolor>$VAR[ColorAccent]</focusedcolor>
+			<textcolor>$VAR[ColorTextSecondary]</textcolor>
+			<focusedtextcolor>$VAR[ColorBackground]</focusedtextcolor>
+			<font>font20</font>
+			<align>center</align>
+			<aligny>center</aligny>
+			<borderstyle>rounded</borderstyle>
+			<animation effect="scale" start="100" end="120" center="auto" time="150" tween="ease-out">Focus</animation>
+		</control>
+	</include>
+
+</includes>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Modern Home Screen Layout (Refactored) -->
+<includes>
+
+	<include name="HomeModern">
+		<control type="group">
+			<visible>!Skin.HasSetting(HomePanelLayout)</visible>
+			<width>1920</width>
+			<height>1080</height>
+
+			<!-- Navigation bar -->
+			<include>Navigation.TopBar</include>
+
+			<!-- Main content scroll -->
+			<control type="scrollgroup" id="9000">
+				<posx>0</posx>
+				<posy>80</posy>
+				<width>1920</width>
+				<height>1000</height>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<scrolltime>250</scrolltime>
+
+				<!-- Hero / Spotlight (Continue Watching) -->
+				<control type="group">
+					<posy>0</posy>
+					<width>100%</width>
+					<height>540</height>
+					<visible>!String.IsEmpty(Window(home).Property(ContinueMovie))</visible>
+
+					<!-- Hero with continue watching item -->
+					<include>Hero.Spotlight</include>
+
+					<!-- Action buttons -->
+					<control type="group">
+						<posx>300</posx>
+						<posy>450</posy>
+						<width>400</width>
+						<height>60</height>
+
+						<control type="button" id="1001">
+							<posx>0</posx>
+							<label>$LOCALIZE[208]</label>
+							<include>Button.Primary</include>
+							<onright>1002</onright>
+						</control>
+
+						<control type="button" id="1002">
+							<posx>200</posx>
+							<label>$LOCALIZE[20005]</label>
+							<include>Button.Secondary</include>
+							<onleft>1001</onleft>
+						</control>
+
+					</control>
+
+				</control>
+
+				<!-- Continue Watching shelf -->
+				<control type="group">
+					<posy>580</posy>
+					<width>100%</width>
+					<height>350</height>
+					<visible>Library.HasContent(movies) | Library.HasContent(tvshows)</visible>
+
+					<include content="HomeShelf.Header">
+						<param name="label">$LOCALIZE[32007]</param>
+					</include>
+
+					<include content="HomeShelf.MediaScrollH">
+						<param name="containerid">2001</param>
+					</include>
+
+				</control>
+
+				<!-- Recently Added shelf -->
+				<control type="group">
+					<posy>950</posy>
+					<width>100%</width>
+					<height>350</height>
+					<visible>Library.HasContent(movies) | Library.HasContent(tvshows)</visible>
+
+					<include content="HomeShelf.Header">
+						<param name="label">$LOCALIZE[32009]</param>
+					</include>
+
+					<include content="HomeShelf.MediaScrollH">
+						<param name="containerid">2002</param>
+					</include>
+
+				</control>
+
+			</control>
+
+		</control>
+	</include>
+
+</includes>

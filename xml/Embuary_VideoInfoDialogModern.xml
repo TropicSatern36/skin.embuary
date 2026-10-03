@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Modern Video Info Dialog (Refactored) -->
+<includes>
+
+	<include name="VideoInfoDialogModern">
+		<control type="group">
+			<visible>!$EXP[AutoCloseInfoDialog]</visible>
+			<width>1920</width>
+			<height>1080</height>
+
+			<!-- Semi-transparent background overlay -->
+			<control type="image">
+				<width>100%</width>
+				<height>100%</height>
+				<texture>colors/white.png</texture>
+				<colordiffuse>ff000000</colordiffuse>
+				<alpha>80</alpha>
+			</control>
+
+			<!-- Info panel (right side) -->
+			<control type="group">
+				<posx>960</posx>
+				<posy>60</posy>
+				<width>900</width>
+				<height>960</height>
+
+				<!-- Background surface -->
+				<control type="image">
+					<width>100%</width>
+					<height>100%</height>
+					<texture>colors/white.png</texture>
+					<colordiffuse>$VAR[ColorSurfaceElevated]</colordiffuse>
+					<borderstyle>rounded</borderstyle>
+				</control>
+
+				<!-- Scrollable content -->
+				<control type="scrollgroup" id="5000">
+					<posx>30</posx>
+					<posy>30</posy>
+					<width>840</width>
+					<height>900</height>
+					<onup>5000</onup>
+					<ondown>5000</ondown>
+					<scrolltime>250</scrolltime>
+
+					<!-- Title -->
+					<control type="label">
+						<posy>0</posy>
+						<width>100%</width>
+						<height>auto</height>
+						<label>$INFO[ListItem.Title]</label>
+						<textcolor>$VAR[ColorTextPrimary]</textcolor>
+						<font>font36</font>
+						<wrapmultiline>true</wrapmultiline>
+					</control>
+
+					<!-- Metadata block (Year, Rating, Duration) -->
+					<control type="label">
+						<posy>60</posy>
+						<width>100%</width>
+						<height>auto</height>
+						<label>$INFO[ListItem.Year] • $INFO[ListItem.Rating] • $INFO[ListItem.Duration] min</label>
+						<textcolor>$VAR[ColorTextSecondary]</textcolor>
+						<font>font16</font>
+					</control>
+
+					<!-- Genre -->
+					<control type="label">
+						<posy>100</posy>
+						<width>100%</width>
+						<height>auto</height>
+						<label>$INFO[ListItem.Genre]</label>
+						<textcolor>$VAR[ColorTextSecondary]</textcolor>
+						<font>font14</font>
+					</control>
+
+					<!-- Plot -->
+					<control type="textbox">
+						<posy>150</posy>
+						<width>100%</width>
+						<height>200</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[ColorTextPrimary]</textcolor>
+						<font>font14</font>
+						<wordwrap>true</wordwrap>
+					</control>
+
+					<!-- Ratings section -->
+					<control type="label">
+						<posy>370</posy>
+						<width>100%</width>
+						<height>30</height>
+						<label>$LOCALIZE[20350]</label>
+						<textcolor>$VAR[ColorTextPrimary]</textcolor>
+						<font>font16_bold</font>
+					</control>
+
+					<include>Rating.MultiSource</include>
+
+				</control>
+
+			</control>
+
+			<!-- Backdrop (left side) -->
+			<control type="image">
+				<posx>60</posx>
+				<posy>60</posy>
+				<width>300</width>
+				<height>450</height>
+				<texture>$INFO[ListItem.Art(poster)]</texture>
+				<aspectratio>keep</aspectratio>
+				<borderstyle>rounded</borderstyle>
+			</control>
+
+		</control>
+	</include>
+
+</includes>

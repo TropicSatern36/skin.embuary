@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Home Screen Shelf Components -->
+<includes>
+
+	<!-- Modern Shelf Header -->
+	<include name="HomeShelf.Header">
+		<control type="label">
+			<width>auto</width>
+			<height>auto</height>
+			<label>$PARAM[label]</label>
+			<textcolor>$VAR[ColorTextPrimary]</textcolor>
+			<font>font36</font>
+			<margin>60,0,0,24</margin>
+		</control>
+	</include>
+
+	<!-- Modern Media Shelf (horizontal scroll) -->
+	<include name="HomeShelf.MediaScrollH">
+		<control type="group">
+			<width>100%</width>
+			<height>350</height>
+
+			<!-- Shelf container -->
+			<control type="fixedlist" id="$PARAM[containerid]">
+				<posx>60</posx>
+				<posy>0</posy>
+				<width>1800</width>
+				<height>320</height>
+				<itemlayout height="320" width="180">
+					<include>MediaCard.Poster</include>
+				</itemlayout>
+				<focusedlayout height="320" width="180">
+					<include>MediaCard.Poster</include>
+				</focusedlayout>
+				<orientation>horizontal</orientation>
+				<scrolltime>250</scrolltime>
+				<animation effect="scroll" start="0" end="-180" time="250" tween="ease-out" condition="Container(ID).OnNext">Conditional</animation>
+			</control>
+
+		</control>
+	</include>
+
+</includes>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hero / Spotlight Component -->
+<includes>
+
+	<!-- Modern Spotlight Hero -->
+	<include name="Hero.Spotlight">
+		<control type="group">
+			<width>1920</width>
+			<height>540</height>
+
+			<!-- Hero backdrop with gradient overlay -->
+			<control type="image">
+				<width>100%</width>
+				<height>100%</height>
+				<texture>$INFO[ListItem.Art(fanart)]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+
+			<!-- Gradient overlay (dark bottom for text readability) -->
+			<control type="image">
+				<width>100%</width>
+				<height>100%</height>
+				<texture>colors/gradient_dark.png</texture>
+				<colordiffuse>ff000000</colordiffuse>
+			</control>
+
+			<!-- Content group (poster + text + actions) -->
+			<control type="group">
+				<posx>60</posx>
+				<posy>100</posy>
+				<width>1800</width>
+				<height>340</height>
+
+				<!-- Poster -->
+				<control type="image">
+					<posx>0</posx>
+					<width>200</width>
+					<height>300</height>
+					<texture>$INFO[ListItem.Art(poster)]</texture>
+					<aspectratio>keep</aspectratio>
+					<borderstyle>rounded</borderstyle>
+				</control>
+
+				<!-- Text content -->
+				<control type="group">
+					<posx>240</posx>
+					<posy>0</posy>
+					<width>1500</width>
+					<height>300</height>
+
+					<!-- Title -->
+					<control type="label">
+						<posy>0</posy>
+						<width>100%</width>
+						<height>auto</height>
+						<label>$INFO[ListItem.Title]</label>
+						<textcolor>$VAR[ColorTextPrimary]</textcolor>
+						<font>font60</font>
+						<wrapmultiline>true</wrapmultiline>
+					</control>
+
+					<!-- Metadata (year, duration, rating) -->
+					<control type="label">
+						<posy>100</posy>
+						<width>100%</width>
+						<height>30</height>
+						<label>$INFO[ListItem.Year] • $INFO[ListItem.Duration] • $INFO[ListItem.Rating]</label>
+						<textcolor>$VAR[ColorTextSecondary]</textcolor>
+						<font>font18</font>
+					</control>
+
+					<!-- Plot -->
+					<control type="textbox">
+						<posy>150</posy>
+						<width>100%</width>
+						<height>130</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[ColorTextSecondary]</textcolor>
+						<font>font16</font>
+						<wordwrap>true</wordwrap>
+					</control>
+
+				</control>
+
+			</control>
+
+		</control>
+	</include>
+
+</includes>

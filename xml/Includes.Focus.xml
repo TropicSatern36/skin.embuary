@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Focus State & Animation Utilities -->
+<includes>
+
+	<!-- Standard focus fade animation -->
+	<animation type="Conditional" condition="Control.HasFocus()" effect="fade" start="70" end="100" time="150" tween="ease-out" id="focus_fade">
+		<animation effect="scale" start="95" end="100" center="auto" time="150" tween="ease-out"/>
+	</animation>
+
+	<!-- Unfocus fade animation -->
+	<animation type="Conditional" condition="!Control.HasFocus()" effect="fade" start="100" end="70" time="150" tween="ease-out" id="unfocus_fade">
+		<animation effect="scale" start="100" end="95" center="auto" time="150" tween="ease-out"/>
+	</animation>
+
+</includes>
