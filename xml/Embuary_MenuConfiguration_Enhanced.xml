@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ============================================
+		ENHANCED MENU CONFIGURATION
+		Simplified tag selection and hub management
+		============================================ -->
+
+	<!-- Quick tag selector button -->
+	<include name="SkinSettings_TagSelector">
+		<control type="button" id="$PARAM[id]">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31393]</label>
+			<label2>[COLOR $VAR[AccentColor]]$VAR[SetTags][/COLOR]</label2>
+			<onclick>RunScript(script.embuary.helper,action=selecttags)</onclick>
+			<visible>Library.HasContent(movies) | Library.HasContent(tvshows)</visible>
+		</control>
+	</include>
+
+	<!-- Tag hub widget configuration -->
+	<include name="SkinSettings_TagHubConfig">
+		<include content="SkinSettingsHeadlineLabel">
+			<param name="id" value="$PARAM[id]01"/>
+			<param name="label" value="$LOCALIZE[31279]"/>
+			<param name="visible" value="[Library.HasContent(movies) | Library.HasContent(tvshows)] + !String.IsEmpty(Window(home).Property(library.tags))"/>
+		</include>
+
+		<!-- Movie tag widget positions -->
+		<control type="button" id="$PARAM[id]02">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31281]</label>
+			<onclick>SetProperty(PositionCount,7,home)</onclick>
+			<onclick>SetProperty(SelectorContent,TagMovieHubWidgets,home)</onclick>
+			<onclick>ActivateWindow(1110)</onclick>
+			<visible>Library.HasContent(movies) + !String.IsEmpty(Window(home).Property(library.tags))</visible>
+		</control>
+
+		<!-- TV show tag widget positions -->
+		<control type="button" id="$PARAM[id]03">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31280]</label>
+			<onclick>SetProperty(PositionCount,8,home)</onclick>
+			<onclick>SetProperty(SelectorContent,TagTVShowHubWidgets,home)</onclick>
+			<onclick>ActivateWindow(1110)</onclick>
+			<visible>Library.HasContent(tvshows) + !String.IsEmpty(Window(home).Property(library.tags))</visible>
+		</control>
+
+		<!-- Mixed content tag widget positions -->
+		<control type="button" id="$PARAM[id]04">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31406]</label>
+			<onclick>SetProperty(PositionCount,13,home)</onclick>
+			<onclick>SetProperty(SelectorContent,TagMixedHubWidgets,home)</onclick>
+			<onclick>ActivateWindow(1110)</onclick>
+			<visible>Library.HasContent(movies) + Library.HasContent(tvshows) + !String.IsEmpty(Window(home).Property(library.tags))</visible>
+		</control>
+	</include>
+</includes>
