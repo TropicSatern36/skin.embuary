@@ -34,11 +34,10 @@
     <extension point="xbmc.addon.metadata">
 
         <summary lang="en_GB">Embuary skin by Sualfred</summary>
-
         <summary lang="de_DE">Embuary Skin von Sualfred</summary>
 
         <description lang="en_GB">
-            Embuary is based on the web UI of Emby and has been developed for Emby-For-Kodi and EmbyCon users, but will also work for other common Kodi setups. This fork provides a Kodi 22 compatibility baseline and modern UI work.
+            Embuary is based on the web UI of Emby and has been developed for Emby-For-Kodi and EmbyCon users, but will also work for other common Kodi setups. This fork provides a Kodi-22 compatibility baseline and modern UI work.
         </description>
 
         <description lang="de_DE">
