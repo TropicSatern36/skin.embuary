@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Localization strings for Continue Watching settings -->
+<!-- Add these to language/English/strings.po -->
+<!-- 
+31080 = Continue Watching (existing)
+31256 = Featured
+31394 = Minimum Watch Threshold
+31395 = Sort Order
+31396 = Recently Played
+31397 = Most Unwatched Episodes
+31398 = Alphabetical
+31399 = Filter by Library Tags
+31400 = Reset to Defaults
+31401 = Reset All Settings
+-->

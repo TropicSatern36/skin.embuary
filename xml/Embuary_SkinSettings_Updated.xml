@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ADDITIONS TO EXISTING SkinSettings - Add this section to your Embuary_Settings.xml window -->
+
+	<!-- Continue Watching Configuration Section -->
+	<!-- This should be added to the main settings window or a new submenu -->
+	<include name="SettingsMenu_ContinueWatching">
+		<item>
+			<label>$LOCALIZE[31080]</label>
+			<onclick>SetProperty(SettingsFocus,ContinueWatching)</onclick>
+			<visible>true</visible>
+		</item>
+	</include>
+
+	<!-- When SettingsFocus == ContinueWatching, show this panel -->
+	<include name="SettingsPanel_ContinueWatching">
+		<visible>String.IsEqual(Window(settings).Property(SettingsFocus),ContinueWatching)</visible>
+		<definition>
+			<include content="SkinSettings_ContinueWatching">
+				<param name="id" value="7000"/>
+			</include>
+		</definition>
+	</include>
+
+</includes>

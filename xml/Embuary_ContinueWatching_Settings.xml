@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ============================================
+		CONTINUE WATCHING WIDGET SETTINGS
+		============================================
+		Configuration for filtering and display of
+		Continue Watching content (in-progress series/movies)
+		============================================ -->
+
+	<include name="SkinSettings_ContinueWatching">
+		<!-- Headline -->
+		<include content="SkinSettingsHeadlineLabel">
+			<param name="id" value="$PARAM[id]01"/>
+			<param name="label" value="$LOCALIZE[31080]"/>
+		</include>
+
+		<!-- Enable/Disable Continue Watching -->
+		<control type="radiobutton" id="$PARAM[id]02">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31080]</label>
+			<selected>!Skin.HasSetting(ContinueWatchingDisabled)</selected>
+			<onclick>Skin.ToggleSetting(ContinueWatchingDisabled)</onclick>
+		</control>
+
+		<!-- Show Movies in Continue Watching -->
+		<control type="radiobutton" id="$PARAM[id]03">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[342]</label>
+			<selected>Skin.HasSetting(ContinueWatchingShowMovies)</selected>
+			<onclick>Skin.ToggleSetting(ContinueWatchingShowMovies)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled)</enable>
+		</control>
+
+		<!-- Show TV Shows in Continue Watching -->
+		<control type="radiobutton" id="$PARAM[id]04">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[20343]</label>
+			<selected>Skin.HasSetting(ContinueWatchingShowTVShows)</selected>
+			<onclick>Skin.ToggleSetting(ContinueWatchingShowTVShows)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled)</enable>
+		</control>
+
+		<!-- Minimum Watch Threshold -->
+		<control type="button" id="$PARAM[id]05">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31394]</label>
+			<label2>$VAR[ContinueWatchingMinThreshold]%</label2>
+			<onclick>Skin.SetNumeric(ContinueWatchingMinThreshold)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled)</enable>
+		</control>
+
+		<!-- Sort Order -->
+		<include content="SkinSettingsHeadlineLabel">
+			<param name="id" value="$PARAM[id]06"/>
+			<param name="label" value="$LOCALIZE[31395]"/>
+			<param name="visible" value="!Skin.HasSetting(ContinueWatchingDisabled)"/>
+		</include>
+
+		<control type="radiobutton" id="$PARAM[id]07">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31396]</label>
+			<selected>String.IsEqual(Skin.GetString(ContinueWatchingSortOrder),lastplayed)</selected>
+			<onclick>Skin.SetString(ContinueWatchingSortOrder,lastplayed)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled)</enable>
+		</control>
+
+		<control type="radiobutton" id="$PARAM[id]08">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31397]</label>
+			<selected>String.IsEqual(Skin.GetString(ContinueWatchingSortOrder),unwatched)</selected>
+			<onclick>Skin.SetString(ContinueWatchingSortOrder,unwatched)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled)</enable>
+		</control>
+
+		<control type="radiobutton" id="$PARAM[id]09">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31398]</label>
+			<selected>String.IsEqual(Skin.GetString(ContinueWatchingSortOrder),title)</selected>
+			<onclick>Skin.SetString(ContinueWatchingSortOrder,title)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled)</enable>
+		</control>
+
+		<!-- Library Filtering Section -->
+		<include content="SkinSettingsHeadlineLabel">
+			<param name="id" value="$PARAM[id]10"/>
+			<param name="label" value="$LOCALIZE[31279]"/>
+			<param name="visible" value="!Skin.HasSetting(ContinueWatchingDisabled) + [Library.HasContent(movies) | Library.HasContent(tvshows)]"/>
+		</include>
+
+		<!-- Tag library filter button -->
+		<control type="button" id="$PARAM[id]11">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31399]</label>
+			<label2>[COLOR $VAR[AccentColor]]$VAR[ContinueWatchingLibraryFilter][/COLOR]</label2>
+			<onclick>RunScript(script.embuary.helper,action=selecttags&amp;setting=ContinueWatchingLibraryFilter)</onclick>
+			<enable>!Skin.HasSetting(ContinueWatchingDisabled) + [Library.HasContent(movies) | Library.HasContent(tvshows)]</enable>
+			<visible>!Skin.HasSetting(ContinueWatchingDisabled) + [Library.HasContent(movies) | Library.HasContent(tvshows)]</visible>
+		</control>
+
+		<!-- Reset to Defaults -->
+		<include content="SkinSettingsHeadlineLabel">
+			<param name="id" value="$PARAM[id]12"/>
+			<param name="label" value="$LOCALIZE[31400]"/>
+		</include>
+
+		<control type="button" id="$PARAM[id]13">
+			<include>SettingsButton</include>
+			<label>$LOCALIZE[31401]</label>
+			<onclick>Skin.SetBool(ContinueWatchingShowMovies,true)</onclick>
+			<onclick>Skin.SetBool(ContinueWatchingShowTVShows,true)</onclick>
+			<onclick>Skin.SetString(ContinueWatchingSortOrder,lastplayed)</onclick>
+			<onclick>Skin.SetNumeric(ContinueWatchingMinThreshold,0)</onclick>
+			<onclick>Skin.Reset(ContinueWatchingDisabled)</onclick>
+		</control>
+	</include>
+
+</includes>

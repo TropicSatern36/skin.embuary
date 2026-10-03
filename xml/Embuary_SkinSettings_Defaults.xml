@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ============================================
+		DEFAULT SETTINGS FOR CONTINUE WATCHING
+		============================================ -->
+
+	<!-- Initialize default Continue Watching settings on first run -->
+	<variable name="InitializeContinueWatchingSettings">
+		<value condition="!Skin.HasSetting(ContinueWatchingInitialized)">
+			$EXEC(python('import xbmcaddon; import xbmcgui; addon = xbmcaddon.Addon(); addon.setSetting("ContinueWatchingInitialized", "true"); addon.setSetting("ContinueWatchingShowMovies", "true"); addon.setSetting("ContinueWatchingShowTVShows", "true"); addon.setSetting("ContinueWatchingMinThreshold", "0"); addon.setSetting("ContinueWatchingSortOrder", "lastplayed")'))
+		</value>
+		<value>true</value>
+	</variable>
+
+</includes>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ============================================
+		CONTINUE WATCHING FILTER VARIABLES
+		============================================ -->
+
+	<!-- Sort method mapping for Continue Watching -->
+	<variable name="ContinueWatchingSortMethod">
+		<value condition="String.IsEqual(Skin.GetString(ContinueWatchingSortOrder),unwatched)">sorttitle</value>
+		<value condition="String.IsEqual(Skin.GetString(ContinueWatchingSortOrder),title)">sorttitle</value>
+		<value>lastplayed</value>
+	</variable>
+
+	<!-- Minimum watch threshold (default 0%) -->
+	<variable name="ContinueWatchingMinThreshold">
+		<value>$VAR[PY_ContinueWatchingMinThreshold]</value>
+	</variable>
+
+	<!-- Movies only flag -->
+	<variable name="ContinueWatchingMoviesOnly">
+		<value condition="Skin.HasSetting(ContinueWatchingShowMovies) + !Skin.HasSetting(ContinueWatchingShowTVShows)">true</value>
+		<value>false</value>
+	</variable>
+
+	<!-- Shows only flag -->
+	<variable name="ContinueWatchingShowsOnly">
+		<value condition="!Skin.HasSetting(ContinueWatchingShowMovies) + Skin.HasSetting(ContinueWatchingShowTVShows)">true</value>
+		<value>false</value>
+	</variable>
+
+	<!-- Library/Tag filter string -->
+	<variable name="ContinueWatchingLibraryFilter">
+		<value>$VAR[PY_ContinueWatchingLibraryFilter]</value>
+	</variable>
+
+	<!-- Shows subtitle based on content type -->
+	<variable name="ContinueWatchingShowsSubtitle">
+		<value condition="!String.IsEmpty(ListItem.Episode)">$LOCALIZE[20360] $INFO[ListItem.Episode] - $INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Year]</value>
+	</variable>
+
+</includes>
